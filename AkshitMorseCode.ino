@@ -10,6 +10,7 @@ const int letterSpace = 3 * dotDuration;
 void setup() {
   Serial.begin(9600);
   pinMode(ledPin, OUTPUT);
+  pinMode(2,INPUT_PULLUP);
 
   delay(1500);
 
@@ -26,8 +27,8 @@ void loop() {
 
   Serial.print("LED Value: ");
   Serial.println(led);
-
-  if (led) {
+  int switchpin = digitalRead(2);
+  if (!switchpin) {
     blinkA();
     blinkK();
     blinkS();
